@@ -278,6 +278,7 @@ const (
 	FRAMEBUFFER                                  = 0x8D40
 	RENDERBUFFER                                 = 0x8D41
 	RGBA4                                        = 0x8056
+	RGBA8                                        = 0x8058
 	RGB5_A1                                      = 0x8057
 	RGB565                                       = 0x8D62
 	DEPTH_COMPONENT16                            = 0x81A5
