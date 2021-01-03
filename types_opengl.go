@@ -46,6 +46,11 @@ type Uniform struct {
 	Value int32
 }
 
+// VertexArray reprensents a VAO.
+type VertexArray struct {
+	Value uint32
+}
+
 func (v Attrib) Valid() bool       { return v.Value != 0 }
 func (v Program) Valid() bool      { return v.Value != 0 }
 func (v Shader) Valid() bool       { return v.Value != 0 }
@@ -54,3 +59,4 @@ func (v Framebuffer) Valid() bool  { return v.Value != 0 }
 func (v Renderbuffer) Valid() bool { return v.Value != 0 }
 func (v Texture) Valid() bool      { return v.Value != 0 }
 func (v Uniform) Valid() bool      { return v.Value != 0 }
+func (v VertexArray) Valid() bool  { return v.Value != 0 }

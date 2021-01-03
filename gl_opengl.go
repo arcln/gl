@@ -73,6 +73,13 @@ func BindRenderbuffer(target Enum, rb Renderbuffer) {
 	gl.BindRenderbuffer(uint32(target), rb.Value)
 }
 
+// BindVertexArray binds a VAO.
+//
+// http://www.khronos.org/opengles/sdk/docs/man3/html/glBindVertexArray.xhtml
+func BindVertexArray(va VertexArray) {
+	gl.BindVertexArray(&va.Value)
+}
+
 // BindTexture binds a texture.
 //
 // http://www.khronos.org/opengles/sdk/docs/man3/html/glBindTexture.xhtml
@@ -108,7 +115,7 @@ func BlendFunc(sfactor, dfactor Enum) {
 	gl.BlendFunc(uint32(sfactor), uint32(dfactor))
 }
 
-// BlendFunc sets the pixel RGB and alpha blending factors separately.
+// BlendFuncSeparate sets the pixel RGB and alpha blending factors separately.
 //
 // http://www.khronos.org/opengles/sdk/docs/man3/html/glBlendFuncSeparate.xhtml
 func BlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha Enum) {
@@ -251,6 +258,15 @@ func CreateRenderbuffer() Renderbuffer {
 	var b Renderbuffer
 	gl.GenRenderbuffers(1, &b.Value)
 	return b
+}
+
+// CreateVertexArray create a VAO.
+//
+// http://www.khronos.org/opengles/sdk/docs/man3/html/glGenVertexArrays.xhtml
+func CreateVertexArray() VertexArray {
+	var va VertexArray
+	gl.GenVertexArrays(1, &va.Value)
+	return va
 }
 
 // CreateShader creates a new empty shader object.

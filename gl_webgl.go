@@ -52,6 +52,10 @@ func BindRenderbuffer(target Enum, rb Renderbuffer) {
 	c.Call("bindRenderbuffer", target, rb.Object)
 }
 
+func BindVertexArray(va VertexArray) {
+	c.Call("bindVertexArray", va.Object)
+}
+
 func BindTexture(target Enum, t Texture) {
 	c.Call("bindTexture", target, t.Object)
 }
@@ -146,6 +150,10 @@ func CreateProgram() Program {
 
 func CreateRenderbuffer() Renderbuffer {
 	return Renderbuffer{Object: c.Call("createRenderbuffer")}
+}
+
+func CreateVertexArray(va VertexArray) {
+	return VertexArray{Object: c.Call("createVertexArray")}
 }
 
 func CreateShader(ty Enum) Shader {

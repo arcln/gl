@@ -63,6 +63,10 @@ type Uniform struct {
 	Value int32
 }
 
+type VertexArray struct {
+	Value int32
+}
+
 func (v Attrib) c() C.GLuint       { return C.GLuint(v.Value) }
 func (v Enum) c() C.GLenum         { return C.GLenum(v) }
 func (v Program) c() C.GLuint      { return C.GLuint(v.Value) }
@@ -72,6 +76,7 @@ func (v Framebuffer) c() C.GLuint  { return C.GLuint(v.Value) }
 func (v Renderbuffer) c() C.GLuint { return C.GLuint(v.Value) }
 func (v Texture) c() C.GLuint      { return C.GLuint(v.Value) }
 func (v Uniform) c() C.GLint       { return C.GLint(v.Value) }
+func (v VertexArray) c() C.GLint   { return C.GLint(v.Value) }
 
 func (v Attrib) Valid() bool       { return v.Value != 0 }
 func (v Program) Valid() bool      { return v.Value != 0 }
@@ -81,6 +86,7 @@ func (v Framebuffer) Valid() bool  { return v.Value != 0 }
 func (v Renderbuffer) Valid() bool { return v.Value != 0 }
 func (v Texture) Valid() bool      { return v.Value != 0 }
 func (v Uniform) Valid() bool      { return v.Value != 0 }
+func (v VertexArray) Valid() bool  { return v.Value != 0 }
 
 func glBoolean(b bool) C.GLboolean {
 	if b {

@@ -54,6 +54,10 @@ func BindRenderbuffer(target Enum, rb Renderbuffer) {
 	C.glBindRenderbuffer(target.c(), rb.c())
 }
 
+func BindVertexArray(va VertexArray) {
+	C.glBindVertexArray(va.c())
+}
+
 func BindTexture(target Enum, t Texture) {
 	C.glBindTexture(target.c(), t.c())
 }
@@ -154,6 +158,12 @@ func CreateRenderbuffer() Renderbuffer {
 	var b Renderbuffer
 	C.glGenRenderbuffers(1, (*C.GLuint)(&b.Value))
 	return b
+}
+
+func CreateVertexArray() VertexArray {
+	var va VertexArray
+	C.glGenVertexArrays(1, (*C.GLuint)(&va.Value))
+	return va
 }
 
 func CreateShader(ty Enum) Shader {

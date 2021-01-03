@@ -42,6 +42,10 @@ type Uniform struct {
 	*js.Object
 }
 
+type VertexArray struct {
+	*js.Object
+}
+
 func (v Attrib) Valid() bool       { return v.Value != 0 }
 func (v Program) Valid() bool      { return v.Object != nil }
 func (v Shader) Valid() bool       { return v.Object != nil }
@@ -50,3 +54,4 @@ func (v Framebuffer) Valid() bool  { return v.Object != nil }
 func (v Renderbuffer) Valid() bool { return v.Object != nil }
 func (v Texture) Valid() bool      { return v.Object != nil }
 func (v Uniform) Valid() bool      { return v.Object != nil }
+func (v VertexArray) Valid() bool  { return v.Object != nil }
