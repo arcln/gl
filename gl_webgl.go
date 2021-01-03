@@ -184,6 +184,10 @@ func DeleteRenderbuffer(v Renderbuffer) {
 	c.Call("deleteRenderbuffer", v.Object)
 }
 
+func DeleteVertexArray(v VertexArray) {
+	c.Call("deleteVertexArray", v.Object)
+}
+
 func DeleteShader(s Shader) {
 	c.Call("deleteShader", s.Object)
 }

@@ -322,6 +322,13 @@ func DeleteRenderbuffer(v Renderbuffer) {
 	gl.DeleteRenderbuffers(1, &v.Value)
 }
 
+// DeleteVertexArray deletes the given render buffer object.
+//
+// http://www.khronos.org/opengles/sdk/docs/man3/html/glDeleteVertexArrays.xhtml
+func DeleteVertexArray(v VertexArray) {
+	gl.DeleteVertexArrays(1, &v.Value)
+}
+
 // DeleteShader deletes shader s.
 //
 // http://www.khronos.org/opengles/sdk/docs/man3/html/glDeleteShader.xhtml

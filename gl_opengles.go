@@ -196,6 +196,10 @@ func DeleteRenderbuffer(v Renderbuffer) {
 	C.glDeleteRenderbuffers(1, (*C.GLuint)(&v.Value))
 }
 
+func DeleteRenderbuffer(v VertexArray) {
+	C.glDeleteVertexArrays(1, (*C.GLuint)(&v.Value))
+}
+
 func DeleteShader(s Shader) {
 	C.glDeleteShader(s.c())
 }
