@@ -493,6 +493,10 @@ func PolygonOffset(factor, units float32) {
 	c.Call("polygonOffset", factor, units)
 }
 
+func PolygonMode(face, mode Enum) {
+	c.Call("polygonMode", face, mode)
+}
+
 func ReadPixels(dst []byte, x, y, width, height int, format, ty Enum) {
 	println("ReadPixels: not yet tested (TODO: remove this after it's confirmed to work. Your feedback is welcome.)")
 	if ty == Enum(UNSIGNED_BYTE) {

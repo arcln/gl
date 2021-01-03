@@ -849,6 +849,13 @@ func PolygonOffset(factor, units float32) {
 	gl.PolygonOffset(factor, units)
 }
 
+// PolygonMode sets the drawing mode for a given face.
+//
+// http://www.khronos.org/opengles/sdk/docs/man3/html/glPolygonMode.xhtml
+func PolygonMode(face, mode gl.Enum) {
+	gl.PolygonMode(face, mode)
+}
+
 // ReadPixels returns pixel data from a buffer.
 //
 // http://www.khronos.org/opengles/sdk/docs/man3/html/glReadPixels.xhtml

@@ -19,7 +19,9 @@ package gl
 */
 import "C"
 
-import "unsafe"
+import (
+	"unsafe"
+)
 
 var ContextWatcher contextWatcher
 
@@ -511,6 +513,10 @@ func PixelStorei(pname Enum, param int32) {
 
 func PolygonOffset(factor, units float32) {
 	C.glPolygonOffset(C.GLfloat(factor), C.GLfloat(units))
+}
+
+func PolygonMode(face, mode Enum) {
+	C.glPolygonMode(face.c(), mode.c())
 }
 
 func ReadPixels(dst []byte, x, y, width, height int, format, ty Enum) {
