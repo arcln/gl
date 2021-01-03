@@ -1099,7 +1099,14 @@ func Uniform4f(dst Uniform, v0, v1, v2, v3 float32) {
 //
 // http://www.khronos.org/opengles/sdk/docs/man3/html/glUniform.xhtml
 func Uniform4fv(dst Uniform, src []float32) {
-	gl.Uniform4fv(dst.Value, int32(len(src)/4), &src[0])
+	Uniform4fvUnsafe(dst, len(src)/4, &src[0])
+}
+
+// Uniform4fvUnsafe writes a vec4 uniform array of len(src)/4 elements.
+//
+// http://www.khronos.org/opengles/sdk/docs/man3/html/glUniform.xhtml
+func Uniform4fvUnsafe(dst Uniform, count int, src *float32) {
+	gl.Uniform4fv(dst.Value, count, src)
 }
 
 // Uniform4i writes an ivec4 uniform variable.

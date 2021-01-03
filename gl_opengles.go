@@ -618,7 +618,11 @@ func Uniform2f(dst Uniform, v0, v1 float32) {
 }
 
 func Uniform2fv(dst Uniform, src []float32) {
-	C.glUniform2fv(dst.c(), C.GLsizei(len(src)/2), (*C.GLfloat)(&src[0]))
+	Uniform2fvUnsafe(dst, C.GLsizei(len(src)/2), &src[0])
+}
+
+func Uniform2fvUnsafe(dst Uniform, count int, src *float32) {
+	C.glUniform2fv(dst.c(), C.GLint(count), (*C.GLfloat)(src))
 }
 
 func Uniform2i(dst Uniform, v0, v1 int) {
@@ -651,6 +655,10 @@ func Uniform4f(dst Uniform, v0, v1, v2, v3 float32) {
 
 func Uniform4fv(dst Uniform, src []float32) {
 	C.glUniform4fv(dst.c(), C.GLsizei(len(src)/4), (*C.GLfloat)(&src[0]))
+}
+
+func Uniform4fvUnsafe(dst Uniform, count int, src *float32) {
+	C.glUniform4fv(dst.c(), C.GLint(count), (*C.GLfloat)(src))
 }
 
 func Uniform4i(dst Uniform, v0, v1, v2, v3 int32) {
