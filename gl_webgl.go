@@ -550,12 +550,12 @@ func StencilOpSeparate(face, sfail, dpfail, dppass Enum) {
 	c.Call("stencilOpSeparate", face, sfail, dpfail, dppass)
 }
 
-func TexImage2D(target Enum, level int, width, height int, format Enum, ty Enum, data []byte) {
+func TexImage2D(target Enum, level int, internalFormat Enum, width, height int, format Enum, ty Enum, data []byte) {
 	var p interface{}
 	if data != nil {
 		p = data
 	}
-	c.Call("texImage2D", target, level, format, width, height, 0, format, ty, p)
+	c.Call("texImage2D", target, level, internalFormat, width, height, 0, format, ty, p)
 }
 
 func TexSubImage2D(target Enum, level int, x, y, width, height int, format, ty Enum, data []byte) {

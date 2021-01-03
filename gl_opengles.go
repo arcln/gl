@@ -563,12 +563,12 @@ func StencilOpSeparate(face, sfail, dpfail, dppass Enum) {
 	C.glStencilOpSeparate(face.c(), sfail.c(), dpfail.c(), dppass.c())
 }
 
-func TexImage2D(target Enum, level int, width, height int, format Enum, ty Enum, data []byte) {
+func TexImage2D(target Enum, level int, internalFormat Enum, width, height int, format Enum, ty Enum, data []byte) {
 	p := unsafe.Pointer(nil)
 	if len(data) > 0 {
 		p = unsafe.Pointer(&data[0])
 	}
-	C.glTexImage2D(target.c(), C.GLint(level), C.GLint(format), C.GLsizei(width), C.GLsizei(height), 0, format.c(), ty.c(), p)
+	C.glTexImage2D(target.c(), C.GLint(level), C.GLint(internalFormat), C.GLsizei(width), C.GLsizei(height), 0, format.c(), ty.c(), p)
 }
 
 func TexSubImage2D(target Enum, level int, x, y, width, height int, format, ty Enum, data []byte) {

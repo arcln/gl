@@ -939,12 +939,12 @@ func StencilOpSeparate(face, sfail, dpfail, dppass Enum) {
 // TexImage2D writes a 2D texture image.
 //
 // http://www.khronos.org/opengles/sdk/docs/man3/html/glTexImage2D.xhtml
-func TexImage2D(target Enum, level int, width, height int, format Enum, ty Enum, data []byte) {
+func TexImage2D(target Enum, level int, internalFormat Enum, width, height int, format Enum, ty Enum, data []byte) {
 	p := unsafe.Pointer(nil)
 	if len(data) > 0 {
 		p = gl.Ptr(&data[0])
 	}
-	gl.TexImage2D(uint32(target), int32(level), int32(format), int32(width), int32(height), 0, uint32(format), uint32(ty), p)
+	gl.TexImage2D(uint32(target), int32(level), int32(internalFormat), int32(width), int32(height), 0, uint32(format), uint32(ty), p)
 }
 
 // TexSubImage2D writes a subregion of a 2D texture image.
